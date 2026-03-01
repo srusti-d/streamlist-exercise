@@ -1,6 +1,6 @@
 import streamlit as st
 from utils.io import load_weather
-from charts.charts import chart_dashboard, chart_bar_temp_diff_wind
+from charts.charts import chart_dashboard, chart_temp_diff_wind
 
 st.set_page_config(page_title="Explore", layout="wide")
 df = load_weather()
@@ -14,3 +14,10 @@ st.markdown("**Guided prompts:**")
 st.write("- Filter to one weather type (e.g., `sun`, `rain`)—does the temperature distribution shift?")
 st.write("- Brush a specific year—do extremes cluster in particular periods?")
 st.write("- Compare histogram shape across weather types—what changes most: center, spread, or tails?")
+
+st.header("Exercise 7: Extreme daily temperature differences by weather type")
+st.write("We wish to see whether, for each weather type, do more extreme temperature differences correlate with levels of wind and precipitation?")
+st.altair_chart(chart_temp_diff_wind(df), use_container_width=True)
+st.caption("Takeaway: Across weather types, there is primarily low precipitation (with the exception of rain and drizzle, of course). " \
+"Wind speeds are generally low to moderate. However, wind speeds increase in the later months of a year, more evident under snowy and rainy conditions.")
+

@@ -7,6 +7,7 @@ from charts.charts import (
     chart_context_seasonality,
     chart_surprise_extremes,
     chart_explain_precip_vs_temp,
+    chart_bar_temp_diff,
 )
 
 st.set_page_config(page_title="Story", layout="wide")

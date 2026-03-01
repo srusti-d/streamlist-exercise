@@ -9,4 +9,5 @@ def load_weather() -> pd.DataFrame:
     df["year"] = df["date"].dt.year
     df["month"] = df["date"].dt.month
     df["month_name"] = df["date"].dt.strftime("%b")
+    df["temp_diff"] = df["temp_max"] - df["temp_min"]
     return df
